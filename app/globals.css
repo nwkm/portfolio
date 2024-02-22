@@ -3,25 +3,74 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+    --foreground-rgb: 0, 0, 0;
+    --background-start-rgb: 214, 219, 220;
+    --background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+    :root {
+        --foreground-rgb: 255, 255, 255;
+        --background-start-rgb: 0, 0, 0;
+        --background-end-rgb: 0, 0, 0;
+    }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+            to bottom,
+            transparent,
+            rgb(var(--background-end-rgb))
+        )
+        rgb(var(--background-start-rgb));
+}
+
+::selection {
+    color: white;
+    background: rgb(83, 82, 82);
+}
+
+.h2-shade:hover {
+    text-shadow: 0px 0px 20px rgb(143, 143, 143);
+}
+
+.shade:hover {
+    text-shadow: 0px 0px 10px rgb(100, 255, 218);
+}
+
+svg {
+    display: inherit;
+}
+
+h2 {
+    @apply text-[3rem] md:text-[4rem] 2xl:text-[5rem] h2-shade;
+}
+
+h3 {
+    @apply text-[#fc0303] md:text-lg 2xl:text-xl mb-12 my-4;
+}
+
+.rainbow-neon {
+    /* font-size: 5rem; */
+    background-image: linear-gradient(
+        45deg,
+        #f3626b,
+        #6181ff,
+        #a25bf2,
+        #ffc100
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: rainbow-keyframe 3s linear infinite;
+}
+
+@keyframes rainbow-keyframe {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(360deg);
+    }
 }
